@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zhao.home">
+    <application
+            android:name="com.zhao.base.debug.DebugApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/home_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/ImageTranslucentTheme">
+        <activity android:name="com.zhao.home.debug.DebugActivity">
+         <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zhao.base.debug.ContainerActivity"/>
+
+        <activity android:name=".debug.TestActivity">
+        </activity>
+       <activity android:name=".debug.MyTestActivity">
+        <!-- <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>-->
+        </activity>
+    </application>
+</manifest>
