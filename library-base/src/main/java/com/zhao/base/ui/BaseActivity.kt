@@ -1,4 +1,4 @@
-package com.zhao.base
+package com.zhao.base.ui
 
 import android.content.Context
 import android.databinding.DataBindingUtil

@@ -1,13 +1,15 @@
 package com.zhao.main
 
 import android.support.v4.app.Fragment
+import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
-import com.zhao.base.BaseActivity
-import com.zhao.base.BaseFragment
-import com.zhao.base.BasePresenter
+import com.zhao.base.ui.BaseActivity
+import com.zhao.base.ui.BaseFragment
+import com.zhao.base.ui.BasePresenter
 import com.zhao.base.router.RouterUrl
 import com.zhao.main.databinding.MainActivityBinding
-class MainActivity :BaseActivity<MainActivityBinding,BasePresenter<*>>(){
+class MainActivity : BaseActivity<MainActivityBinding, BasePresenter<*>>(){
+    private val TAG = MainActivity::class.java.simpleName
     override var layoutId: Int = R.layout.main_activity
     //装fragment的实例集合
     private lateinit var  fragments: ArrayList<BaseFragment<*, *>>

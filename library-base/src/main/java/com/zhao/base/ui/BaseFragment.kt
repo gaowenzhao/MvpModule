@@ -1,4 +1,4 @@
-package com.zhao.base
+package com.zhao.base.ui
 
 import android.content.Context
 import android.databinding.DataBindingUtil
@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.zhao.base.BuildConfig
 import com.zhao.base.eventbus.EventBusUtil
 import com.zhao.base.utils.StatusBarUtil
 
@@ -18,10 +19,11 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
     open var isEventbus = false
     open var mPresenter: T? = null
     var mRootView: View? = null
-    protected var mContext: Context? = null//activity的上下文对象
+    lateinit var mContext: Context
     open var bundle: Bundle? = null
     private var isViewCreated: Boolean = false
-    private var isUIVisible: Boolean = false
+//    private var isUIVisible: Boolean = false// release(模块)
+    private var isUIVisible: Boolean = true//debug
     private var isFirstVisible:Boolean = false//是否已经加载过
     abstract var layoutId: Int
     abstract var darkMode: Boolean
@@ -37,7 +39,7 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
      *
      * @param context
      */
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
     }
@@ -129,9 +131,9 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
         super.onDestroy()
     }
 
-    override fun getContext(): Context? {
+    override fun getContext(): Context {
         if (null == mContext) {
-            mContext = activity
+            mContext = activity!!
         }
         return mContext
     }
