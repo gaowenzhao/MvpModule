@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <!--半透明-->
+    <color name="gray">#80D3D3D3</color>
+    <!--状态栏颜色-->
+    <color name="c_3c4f5e">#3C4F5E</color>
 </resources>

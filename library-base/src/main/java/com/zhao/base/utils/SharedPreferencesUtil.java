@@ -3,7 +3,7 @@ package com.zhao.base.utils;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import com.zhao.base.ui.BaseApplication;
+import com.zhao.base.app.BaseApplication;
 
 /**
  * Created by hmh on 14/10/2017.

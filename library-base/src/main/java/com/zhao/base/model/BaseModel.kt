@@ -1,9 +1,7 @@
-package com.zhao.base.ui;
+package com.zhao.base.model;
 
 import com.google.gson.Gson
-import com.zhao.base.http.Client
 import com.zhao.base.http.Httper
-import com.zhao.base.http.RestApi
 import com.zhao.base.utils.NetUtils
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,7 +11,6 @@ import okhttp3.MediaType
 import okhttp3.RequestBody
 
 abstract class BaseModel {
-
     open var mediaTypeParse = "application/json;charset=UTF-8"
 
     fun getCache(): String {

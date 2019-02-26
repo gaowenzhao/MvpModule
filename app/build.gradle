@@ -10,33 +10,196 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
+    }
+    signingConfigs {
+        signing {
+            //签名秘钥库文件的存放的位置，这里使用的是相对路径
+            storeFile file('/key/qmwallet.jks')
+            //秘钥库的访问密码
+            storePassword 'qmwalet123'
+            //别名，因为一个密码库可以供多个项目使用，所以别名不同，最后的签名也是不同的
+            keyAlias 'qmwalet'
+            //别名的私钥密码
+            keyPassword 'qmwalet123'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
     }
     buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+        debug {
+//            applicationIdSuffix '.debug'
+            ndk {
+                //选择要添加的对应cpu类型的.so库
+                abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+                // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+            }
+            // Zipalign优化
+            zipAlignEnabled true
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk {
+                //选择要添加的对应cpu类型的.so库
+                abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+                // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+            }
+            // 混淆是否开启
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+//            shrinkResources true
+            // 加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 签名
+            signingConfig signingConfigs.signing
         }
     }
-/*    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-            if (isBuildModule.toBoolean()) {
-                //独立运行
-                manifest.srcFile 'src/main/alone/AndroidManifest.xml'
-            } else {
-                //合并到宿主
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-                resources {
-                    //正式版本时，排除debug文件夹下所有调试文件
-                    exclude 'src/debug/*'
-                }
-            }
-        }
-    }*/
     dataBinding {
         enabled true
     }
+
+    productFlavors {
+        // 应用商店记录来源
+        // 动态添加 string.xml 字段；
+        // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
+        "pingtai" {
+            buildConfigField("String", "ALIAS", '"app平台"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }     // app平台
+        "360kfpt" {
+            buildConfigField("String", "ALIAS", '"360开发平台"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 360开发平台
+        "stQEBU" {
+            buildConfigField("String", "ALIAS", '"应用宝"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 应用宝
+        "CGPxJj" {
+            buildConfigField("String", "ALIAS", '"小米商店"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 小米商店
+        "A07Tcw" {
+            buildConfigField("String", "ALIAS", '"安智市场"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 安智市场
+        "7gHwQt" {
+            buildConfigField("String", "ALIAS", '"豌豆荚"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 豌豆荚
+        "5SVJCr" {
+            buildConfigField("String", "ALIAS", '"华为智汇云"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 华为智汇云
+        "qOBAjL" {
+            buildConfigField("String", "ALIAS", '"魅族软件中心"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 魅族软件中心
+        "BfERhj" {
+            buildConfigField("String", "ALIAS", '"联想乐商店"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 联想乐商店
+        "JfLURd" {
+            buildConfigField("String", "ALIAS", '"OPPO"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // OPPO
+        "TthG37" {
+            buildConfigField("String", "ALIAS", '"机锋市场"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 机锋市场
+        "MD6F47" {
+            buildConfigField("String", "ALIAS", '"优亿市场"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 优亿市场
+        "vFfJw8" {
+            buildConfigField("String", "ALIAS", '"木蚂蚁"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 木蚂蚁
+        "bN2Qpj" {
+            buildConfigField("String", "ALIAS", '"金立易用汇"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 金立易用汇
+        "dEr43F" {
+            buildConfigField("String", "ALIAS", '"3G门户"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 3G门户（3G安卓市场）
+        "4rYXwC" {
+            buildConfigField("String", "ALIAS", '"N多市场"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // N多市场
+        "FVUm3A" {
+            buildConfigField("String", "ALIAS", '"搜狗手机助手"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 搜狗手机助手
+        "SArkY5" {
+            buildConfigField("String", "ALIAS", '"历趣应用商店"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 历趣应用商店
+        "j2kh3O" {
+            buildConfigField("String", "ALIAS", '"锤子应用商店"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 锤子应用商店
+        "WCP6Np" {
+            buildConfigField("String", "ALIAS", '"乐视应用商店"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }     // 乐视应用商店
+        "dkvivo" {
+            buildConfigField("String", "ALIAS", '"vivo"')
+            resValue("string", "APP_NAME", "组件化应用借钱")
+        }     // vivo
+        "XIA5rg2O" {
+            buildConfigField("String", "ALIAS", '"百度平台"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 百度平台
+        "dkwdj" {
+            buildConfigField("String", "ALIAS", '"豌豆夹贷款"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 豌豆夹贷款
+        "sanxing" {
+            buildConfigField("String", "ALIAS", '"三星应用市场"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 三星应用市场
+        "yingybtf" {
+            buildConfigField("String", "ALIAS", '"应用宝"')
+            resValue("string", "APP_NAME", "组件化应用")
+        }    // 应用宝
+
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [CHANNEL_NAME: name]
+        }
+    }
+
+    // 这里修改apk打包时的名字
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def appName = "组件化应用"
+            def buildName
+            def channelName
+            if (!variant.buildType.isDebuggable()) {
+                // 这里修改apk文件名
+                // 输出apk名称为:组件化应用_20180102_dEr43F_V1.5.9_3G门户.apk
+                variant.productFlavors.each { product ->
+                    buildName = product.name
+                    appName = product.resValues.get("APP_NAME").value
+                    channelName = product.buildConfigFields.get("ALIAS").value.replaceAll("\"", "")
+                }
+//                outputFileName = "组件化应用_${buildTime()}_${variant.name}_v${variant.versionNamexx}.apk"
+                outputFileName = "${appName}_${buildTime()}_${buildName}_v${variant.versionName}_${channelName}.apk"
+                variant.packageApplication.outputDirectory = new File("./apk")
+            }
+        }
+    }
+//    aaptOptions.cruncherEnabled = false
+//    aaptOptions.useNewCruncher = false
+}
+
+static def buildTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {

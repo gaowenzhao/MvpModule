@@ -1,11 +1,10 @@
 package com.zhao.main
 
 import android.support.v4.app.Fragment
-import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
-import com.zhao.base.ui.BaseActivity
-import com.zhao.base.ui.BaseFragment
-import com.zhao.base.ui.BasePresenter
+import com.zhao.base.inf.BaseActivity
+import com.zhao.base.inf.BaseFragment
+import com.zhao.base.presenter.BasePresenter
 import com.zhao.base.router.RouterUrl
 import com.zhao.main.databinding.MainActivityBinding
 class MainActivity : BaseActivity<MainActivityBinding, BasePresenter<*>>(){

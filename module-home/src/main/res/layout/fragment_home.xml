@@ -14,13 +14,12 @@
                 android:fitsSystemWindows="true"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                app:navigationIcon="@mipmap/ic_back"
                 android:background="@color/colorPrimary">
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="首页界面" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="首页界面"/>
         </android.support.v7.widget.Toolbar>
         <TextView
                 android:id="@+id/tv_content"
@@ -29,6 +28,11 @@
                 android:layout_gravity="center"
                 android:text="首页界面"
                 android:textSize="50px"
+        />
+        <ImageView
+                android:id="@+id/iv_banner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
         />
     </LinearLayout>
 

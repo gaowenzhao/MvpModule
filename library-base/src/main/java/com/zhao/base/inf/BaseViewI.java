@@ -1,4 +1,4 @@
-package com.zhao.base.ui;
+package com.zhao.base.inf;
 
 /**
  *

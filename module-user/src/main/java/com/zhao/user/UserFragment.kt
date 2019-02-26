@@ -2,8 +2,8 @@ package com.zhao.user
 
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.zhao.base.ui.BaseFragment
-import com.zhao.base.ui.BasePresenter
+import com.zhao.base.inf.BaseFragment
+import com.zhao.base.presenter.BasePresenter
 import com.zhao.base.router.RouterUrl
 import com.zhao.user.databinding.FragmentUserBinding
 @Route(path = RouterUrl.User.TabUser)

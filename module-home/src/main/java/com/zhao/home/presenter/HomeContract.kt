@@ -1,7 +1,5 @@
 package com.zhao.home.presenter
 
-import com.zhao.base.ui.BaseViewI
-
 /**
  * 首页
  */

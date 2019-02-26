@@ -1,6 +1,6 @@
 package com.zhao.base.debug
-import com.zhao.base.ui.BaseApplication
+import com.zhao.base.app.BaseApplication
 
-class DebugApplication :BaseApplication(){
+class DebugApplication : BaseApplication(){
 
 }

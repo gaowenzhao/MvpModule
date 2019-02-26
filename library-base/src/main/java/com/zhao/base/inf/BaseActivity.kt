@@ -1,10 +1,11 @@
-package com.zhao.base.ui
+package com.zhao.base.inf
 
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.gyf.barlibrary.ImmersionBar
 import com.zhao.base.eventbus.EventBusUtil
 
 /**
@@ -23,11 +24,10 @@ abstract class BaseActivity<V : ViewDataBinding,T : BasePresenterI> : AppCompatA
         super.onCreate(savedInstanceState)
         context = this
         ui = DataBindingUtil.setContentView(this,layoutId)
-//        AppManager.getInstance().addActivity(this)
         if (isEventbus) {
             EventBusUtil.register(this)
         }
-//        initToolbar()
+        ImmersionBar.with(this).init()
         initView()
         initData()
     }
@@ -49,7 +49,6 @@ abstract class BaseActivity<V : ViewDataBinding,T : BasePresenterI> : AppCompatA
         if (isEventbus) {
             EventBusUtil.unregister(this)
         }
-//        AppManager.getInstance().killActivity(this)
         super.onDestroy()
     }
 

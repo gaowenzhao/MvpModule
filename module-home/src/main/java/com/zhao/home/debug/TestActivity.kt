@@ -2,8 +2,8 @@ package com.zhao.home.debug
 
 import android.os.Build
 import android.support.annotation.RequiresApi
-import com.zhao.base.ui.BaseActivity
-import com.zhao.base.ui.BasePresenter
+import com.zhao.base.inf.BaseActivity
+import com.zhao.base.presenter.BasePresenter
 import com.zhao.home.R
 import com.zhao.home.databinding.ActivityTestBinding
 

@@ -1,6 +1,7 @@
-package com.zhao.base.ui
+package com.zhao.base.presenter
 
 import android.content.Context
+import com.zhao.base.inf.BasePresenterI
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 

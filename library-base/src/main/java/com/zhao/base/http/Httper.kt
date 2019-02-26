@@ -4,7 +4,7 @@ import android.content.ContentValues.TAG
 import android.text.TextUtils
 import android.util.Log
 import com.google.gson.GsonBuilder
-import com.zhao.base.ui.BaseApplication
+import com.zhao.base.app.BaseApplication
 import com.zhao.base.utils.HeaderUtils
 import com.zhao.base.utils.NetUtils
 import com.zhao.base.utils.SharedPreferencesUtil

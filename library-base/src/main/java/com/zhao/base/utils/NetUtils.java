@@ -19,7 +19,7 @@ package com.zhao.base.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.zhao.base.ui.BaseApplication;
+import com.zhao.base.app.BaseApplication;
 
 /**
  * 网络

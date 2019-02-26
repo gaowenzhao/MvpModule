@@ -2,7 +2,7 @@ package com.zhao.base.utils;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-import com.zhao.base.ui.BaseApplication;
+import com.zhao.base.app.BaseApplication;
 
 /**
  * @author rg65544

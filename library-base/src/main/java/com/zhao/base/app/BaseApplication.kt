@@ -1,4 +1,4 @@
-package com.zhao.base.ui
+package com.zhao.base.app
 
 import android.app.Application
 import android.content.Context

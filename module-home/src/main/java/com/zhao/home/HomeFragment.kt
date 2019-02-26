@@ -2,7 +2,8 @@ package com.zhao.home
 
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.zhao.base.ui.BaseFragment
+import com.bumptech.glide.Glide
+import com.zhao.base.inf.BaseFragment
 import com.zhao.base.router.RouterUrl
 import com.zhao.home.databinding.FragmentHomeBinding
 import com.zhao.home.presenter.HomeContract
@@ -16,6 +17,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomePresenter>(),HomeCont
      override var layoutId: Int = R.layout.fragment_home
      override fun initData() {
           mPresenter?.getBannerList()
+          Glide.with(context)
+               .load("http://hzedcom.oss-cn-shenzhen.aliyuncs.com/177918300695961600.png")
+               .into(ui.ivBanner)
      }
      override fun initView(RootView: View) {
           mPresenter?.attachView(this, context!!)
@@ -23,6 +27,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomePresenter>(),HomeCont
 
      }
      override fun onBannerSuccess() {
-
      }
 }

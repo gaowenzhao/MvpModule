@@ -1,32 +1,32 @@
-package com.zhao.base.ui
+package com.zhao.base.inf
 
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.zhao.base.BuildConfig
+import com.gyf.barlibrary.ImmersionBar
+import com.gyf.barlibrary.SimpleImmersionFragment
+import com.zhao.base.R
 import com.zhao.base.eventbus.EventBusUtil
-import com.zhao.base.utils.StatusBarUtil
 
 /**
  * Fragment父类
  */
-abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment(){
+abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : SimpleImmersionFragment(){
     open var isEventbus = false
     open var mPresenter: T? = null
     var mRootView: View? = null
     lateinit var mContext: Context
     open var bundle: Bundle? = null
     private var isViewCreated: Boolean = false
-//    private var isUIVisible: Boolean = false// release(模块)
-    private var isUIVisible: Boolean = true//debug
+    private var isUIVisible: Boolean = false// release(模块)
+//    private var isUIVisible: Boolean = true//debug(单独模块调试)
     private var isFirstVisible:Boolean = false//是否已经加载过
     abstract var layoutId: Int
-    abstract var darkMode: Boolean
+    open var darkMode: Boolean = false
     lateinit var ui: V
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -80,6 +80,13 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
         isViewCreated = true
         lazyLoad() // 执行懒加载,因为无法确定setUserVisibleHint和onViewCreated哪个方法先执行，因此两个方法里面都需要调用lazyLoad
     }
+
+    override fun initImmersionBar() {
+        ImmersionBar.with(this)
+            .statusBarDarkFont(darkMode, 0.2f)
+            .navigationBarColor(R.color.c_3c4f5e)
+            .init()
+    }
     /**
      * 在这里实现Fragment数据的缓加载.
      *
@@ -108,7 +115,6 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
             isUIVisible = false
         }else{                      //每次界面可见都加载(除了首次加载)，加载过的界面才可以回调
             if(isFirstVisible){
-                StatusBarUtil.setDarkMode(activity,darkMode)
                 onUserVisible()
             }
         }
@@ -117,7 +123,7 @@ abstract class BaseFragment<V : ViewDataBinding,T : BasePresenterI> : Fragment()
         if (isEventbus) {
             EventBusUtil.register(this)
         }
-        StatusBarUtil.setDarkMode(activity,darkMode)
+//        StatusBarUtil.setDarkMode(activity!!,darkMode)
         initView(mRootView!!)
         initData()
     }
