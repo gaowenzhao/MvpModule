@@ -3,7 +3,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
        <!-- <item name="android:windowTranslucentStatus">false</item>-->
     </style>
-    <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    </style>
+    <!--全屏-->
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/bg_launch_screens</item>
     </style>
 </resources>

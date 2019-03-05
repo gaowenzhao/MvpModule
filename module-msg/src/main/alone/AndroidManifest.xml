@@ -9,7 +9,7 @@
         tools:replace="label"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/BaseAppTheme">
         <activity android:name="com.zhao.msg.debug.DebugActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
