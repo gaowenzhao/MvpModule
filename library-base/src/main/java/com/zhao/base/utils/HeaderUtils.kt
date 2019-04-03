@@ -39,7 +39,7 @@ class HeaderUtils {
 
         @JvmStatic
         fun getToken(): String {
-            val token: String = SharedPreferencesUtil.getInstance().get(SharedPreferencesUtil.KEY_TOCKEN, "") as String
+            val token: String = SPUtil.getInstance().get(SPUtil.KEY_TOCKEN, "") as String
 //            return TestData.token
             return token
         }

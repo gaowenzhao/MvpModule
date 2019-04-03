@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder
 import com.zhao.base.app.BaseApplication
 import com.zhao.base.utils.HeaderUtils
 import com.zhao.base.utils.NetUtils
-import com.zhao.base.utils.SharedPreferencesUtil
+import com.zhao.base.utils.SPUtil
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -126,7 +126,7 @@ object Httper {
 
     fun updataToken(v: String) {
         token = v
-        SharedPreferencesUtil.getInstance().put(SharedPreferencesUtil.KEY_TOCKEN, v)
+        SPUtil.getInstance().put(SPUtil.KEY_TOCKEN, v)
     }
 
     fun isLogin(): Boolean {//已登录

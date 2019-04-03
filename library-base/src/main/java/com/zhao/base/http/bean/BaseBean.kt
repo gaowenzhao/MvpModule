@@ -7,7 +7,7 @@ import com.zhao.base.http.bean.BaseBean.Code.unknown
 
     var code: Int = unknown
     var message: String = ""
-    lateinit var data: T
+    var data: T?= null
     fun isSuccess(): Boolean {
         return success == code
     }

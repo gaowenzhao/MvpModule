@@ -8,8 +8,6 @@
     </style>
     <!--全屏-->
     <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/bg_launch_screens</item>
     </style>
 </resources>

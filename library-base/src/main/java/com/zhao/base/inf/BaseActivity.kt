@@ -6,7 +6,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.gyf.barlibrary.ImmersionBar
-import com.zhao.base.eventbus.EventBusUtil
+import com.zhao.base.utils.eventbus.EventBusUtil
 
 /**
  * BaseActivity父类

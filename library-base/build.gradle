@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 def config = rootProject.ext.configs
+
 android {
     compileSdkVersion config.compileSdkVersion
     defaultConfig {

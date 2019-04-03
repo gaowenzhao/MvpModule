@@ -1,4 +1,4 @@
-package com.zhao.base.router
+package com.zhao.base.utils.router
 
 class RouterUrl {
 
